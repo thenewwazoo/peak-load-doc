@@ -23,7 +23,7 @@ As a rough analogy, think of it like marbles (clients) in buckets (servers). The
 
 ## The Process of a Rolling Restart
 
-Consider a pool of _h_ hosts divided into _n_ tranches, with _m_ clients. They've been running happily for a while, and client load per host has become evenly distributed, with _m / n_ clients per host. It's release time, and the hosts must be restarted (or replaced, as the case may be).
+Consider a pool of _h_ hosts divided into _n_ tranches, with _m_ clients. They've been running happily for a while, and client load per host has become evenly distributed, with _m / h_ clients per host. It's release time, and the hosts must be restarted (or replaced, as the case may be).
 
 ### In two tranches
 
@@ -99,7 +99,7 @@ Let's formalize this so we can see how bad it gets.
 
 ## A mathematical model
 
-For _n_ tranches of _m_ connections, we can describe the number of connections held by the last tranche at the _n-1_th iteration as:
+For _n_ tranches of _m_ connections, we can describe the number of connections held by the last tranche at the _n-1_ th iteration as:
 
 ![C_n\left(n-1\right)=\frac{m}{n}\cdot\left(1+r\right)^{n-1}](fig1.png)
 
